@@ -3,5 +3,7 @@
 > yarn start
 >
 > > running server with nodemon
-> > or
-> > npm run start
+>
+> or
+>
+> npm run start
