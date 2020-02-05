@@ -13,31 +13,35 @@ $conn = mysqli_connect(
 
 <?php
 
-function get_year(){
-    if (isset($_GET['year'])){
+function get_year()
+{
+    if (isset($_GET['year'])) {
         return $_GET['year'];
-    }else {
+    } else {
         return date('Y');
     }
 }
 
-function get_month(){
-    if (isset($_GET['month'])){
+function get_month()
+{
+    if (isset($_GET['month'])) {
         return $_GET['month'];
-    }else {
+    } else {
         return date('m');
     }
 }
 
-function get_day(){
-    if (isset($_GET['day']))
+function get_day()
+{
+    if (isset($_GET['day'])) {
         return $_GET['day'];
-    else
+    } else {
         return date('d');
+    }
 }
 
-function get_direct_day($date, $direct){
-
+function get_direct_day($date, $direct)
+{
     $timestamp = strtotime($date.$direct);
 
     $year  = date("Y", $timestamp);
@@ -45,20 +49,19 @@ function get_direct_day($date, $direct){
     $day   = date("d", $timestamp);
 
     return "calender.php?year={$year}&month={$month}&day={$day}";
-
 }
 
-function print_date($date){
-
+function print_date($date)
+{
     $timestamp = strtotime($date);
 
     echo date("Y년 m월 d일", $timestamp);
-
 }
 
 ?>
 
 <?php
+date_default_timezone_set('Asia/Seoul');
 // 년, 월, 일(기본값: 오늘)
 $year  = htmlspecialchars(get_year());
 $month = htmlspecialchars(get_month());
@@ -93,7 +96,10 @@ $sql = "SELECT
         WHERE user= '{$user_id}' AND date LIKE \"$year-{$month}-%\"
         GROUP BY date
         ORDER BY date";
-
+function temp()
+{
+    return 1;
+}
 $result = mysqli_query($conn, $sql);
 
 //
@@ -105,9 +111,8 @@ $update_attendance = array();
 
 $count = 0;
 
-while($row = mysqli_fetch_array($result)){
-
-    if ($today > $row['date'] && $row['attendance'] == 1){
+while ($row = $result) {
+    if ($today > $row['date'] && $row['attendance'] == 1) {
         array_push($update_attendance, $row['calender_id']);
         $count++;
     }
@@ -121,18 +126,15 @@ while($row = mysqli_fetch_array($result)){
     array_push($this_month_attendance, $filtered['date'], $filtered['attendance']);
 
     $max+=2;
-
 }
 
 // 지난 계획 결석 처리
-for ($i = 0; $i < $count; $i++){
-
+for ($i = 0; $i < $count; $i++) {
     $sql = "UPDATE calender
         SET attendance = attendance+1
         WHERE calender_id = {$update_attendance[$i]}";
 
     mysqli_query($conn, $sql);
-
 }
 
 ?>
@@ -144,18 +146,15 @@ $result = mysqli_query($conn, "SELECT * FROM exercise");
 $exercise = array();
 
 while ($row = mysqli_fetch_array($result)) {
-
-    array_push($exercise,
-
+    array_push(
+        $exercise,
         array(
 
             'exercise_id' => $row['exercise_id'],
             'name'        => $row['name']
 
         )
-
     );
-
 }
 
 $input_window = "";
@@ -180,11 +179,8 @@ $input_window = "<div class='form'><form id='input_window' action='calender_proc
                     <input type='hidden' name='date' value='{$selected_day}'>";
 
 if ($today <= $selected_day) {
-
     if (0 < mysqli_num_rows($result)) {
-
         while ($row = mysqli_fetch_array($result)) {
-
             $selected_exercise = "";
             $lest_exercise     = "";
 
@@ -193,13 +189,11 @@ if ($today <= $selected_day) {
                 <p><select name='exercise[]'> ";
 
             for ($i = 0; $i < count($exercise); $i++) {
-
-                if ($row['exercise'] == $exercise[$i]['exercise_id']){
+                if ($row['exercise'] == $exercise[$i]['exercise_id']) {
                     $selected_exercise .= "<option value=''>{$exercise[$i]['name']}</option>";
-                }else{
+                } else {
                     $lest_exercise .= "<option value='{$exercise[$i]['exercise_id']}'>{$exercise[$i]['name']}</option>";
                 }
-
             }
             $input_window .= $selected_exercise;
             $input_window .= $lest_exercise;
@@ -212,7 +206,6 @@ if ($today <= $selected_day) {
             array_push($calender_id, $row['calender_id']);
 
             $count++;
-
         }
     }
     $input_window .= "<input type='hidden' name='count' value='{$count}'>
@@ -227,7 +220,6 @@ if ($today <= $selected_day) {
         $input_window .=
             "<div><input type='submit' value='저장'></div></form>";
     }
-
 }
 
 ?>
@@ -297,31 +289,29 @@ if ($today <= $selected_day) {
             <?php for ($j = 0; $j < 7; $j++): ?>
                 <!-- selected -->
                 <td>
-                    <?php if(($i == 0 && $j > $first_week-1) || ($i > 0 && $this_day <= $total_days)): ?>
+                    <?php if (($i == 0 && $j > $first_week-1) || ($i > 0 && $this_day <= $total_days)): ?>
                         <a
                             <?php
-                            if ($day == $this_day){
+                            if ($day == $this_day) {
                                 echo "id=\"selected_day\"";
                             }
                             ?>
                             href="calender.php?year=<?=$year ?>&month=<?=$month ?>&day=<?= sprintf('%02d', $this_day) ?>">
                         <?php
-                            for ($k = 0; $k < $max; $k+=2){
-
-                                if ($this_month_attendance[$k] == $year."-".$month."-".sprintf('%02d', $this_day) ) {
-
-                                    if ($this_month_attendance[$k+1] == 1)
+                            for ($k = 0; $k < $max; $k+=2) {
+                                if ($this_month_attendance[$k] == $year."-".$month."-".sprintf('%02d', $this_day)) {
+                                    if ($this_month_attendance[$k+1] == 1) {
                                         echo "<p>계획</p>";
-                                    elseif ($this_month_attendance[$k+1] == 2)
+                                    } elseif ($this_month_attendance[$k+1] == 2) {
                                         echo "<p id='r'>결석</p>";
-                                    elseif ($this_month_attendance[$k+1] == 3)
+                                    } elseif ($this_month_attendance[$k+1] == 3) {
                                         echo "<p id='o'>출석</p>";
-                                    elseif ($this_month_attendance[$k+1] == 4)
+                                    } elseif ($this_month_attendance[$k+1] == 4) {
                                         echo "<p>미흡</p>";
-                                    elseif ($this_month_attendance[$k+1] == 5)
+                                    } elseif ($this_month_attendance[$k+1] == 5) {
                                         echo "<p>달성</p>";
+                                    }
                                 }
-
                             }
                         echo $this_day++;
                         ?>

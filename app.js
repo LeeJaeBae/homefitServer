@@ -11,7 +11,7 @@ var mysql = require("mysql");
 var dbconfig = require("./config/database");
 var connection = mysql.createConnection(dbconfig);
 
-connection.connect();
+// connection.connect();
 
 var homeRouter = require("./routes/home");
 

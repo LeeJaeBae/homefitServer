@@ -4,7 +4,7 @@ $user_id = 1;
 
 $conn = mysqli_connect(
     '127.0.0.1',
-    'root',
+    'homefit',
     '111111',
     'homefit'
 );
