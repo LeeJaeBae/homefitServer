@@ -1,0 +1,263 @@
+@charset "urf-8";
+
+/* 스킵 메뉴 */
+#skip { position : relative ; }
+#skip a { display : inline-block ; position : absolute ; top : -35px ; left : 0 ; border : 1px soild white ;
+    width : 70px ; background-color : #555 ; color : #fff ; text-align : center ; }
+#skip a:active, 
+#skip a:focus { top : 0 ; }
+
+/* section 레이아웃 */
+#main_wrap { overflow : hidden ; width : 100% ; position : relative ; }
+#main_wrap #content_left { float : left ;  position : relative ; width : 20% ; height : 700px ; }
+#main_wrap #content_center { float : left ; width : 60% ; height : 700px ; background-color: #333 ; }
+#main_wrap #content_right { float : left ; position : relative ; width : 20% ; height : 700px ; }
+
+/* footer 레이아웃 */
+#footer { clear : both ; width : 100% ; height : 100px ; background-color: #464159 ; }
+
+/* content_left */
+.content_left {}
+.content_left a {}
+.content_left a.next_ex li{ display : none ; }
+.content_left ul li {
+    width : 90% ; height : 70px ;
+    line-height: 70px ;
+    text-align : center ; 
+    border-radius : 20px ; 
+    font-size : 32px ; 
+}
+.content_left a.btn1 li {
+    width : 80% ; height : 70px ; 
+    margin : 10% 10% ; 
+    font-size : 28px ;
+    color : #fff ; 
+    background-color: #777 ; 
+ }
+.content_left a.btn2 .counter { 
+    overflow : hidden ; 
+    height : 90px ; 
+    margin : 5% ; 
+    background-color: #777 ; 
+    border-radius : 20px ; 
+}
+.content_left a.btn2 .counter ul li {
+    width : 50% ; height : 45px ;
+    border-right : 1px solid #bdbdbd ;
+    box-sizing : border-box ; 
+    float : left ; 
+    text-align : center ; 
+    line-height: 45px ;
+    font-size : 24px ; 
+    color : #fff ; 
+    border-radius : 0 ;
+}
+.content_left a.btn2 .counter ul .cl_tit {
+    font-size : 28px ; 
+    font-weight : bold ; 
+}
+.content_left a.btn3 li {
+    position : absolute ; 
+    bottom : 0 ; left : 0 ;
+    margin : 5% 5% ; 
+    text-align : center ; 
+    color : #fff ; 
+    background-color: #111 ;
+    transition : all 0.2s ease ;
+}
+.content_left a.btn3:hover li {
+    
+    font-size : 34px ; 
+    color : rgb(90, 127, 250) ;
+}
+
+
+/* content_right */
+.content_right {}
+.content_right a {}
+.content_right a.start_btn li{ display : none ; }
+.content_right ul li {
+    width : 90% ; height : 70px ;
+    line-height: 70px ;
+    text-align : center ; 
+    border-radius : 20px ; 
+    font-size : 32px ; 
+}
+.content_right a.btn1 li {
+    width : 80% ; 
+    margin : 10% 10% ; 
+    text-align : center ; 
+    font-size : 28px ;
+    color : #fff ; 
+    background-color: #777 ; 
+}
+.content_right a.btn2 li {
+    margin : 100px 5% 5% 5% ; 
+    color : #fff ; 
+    background-color:  rgb(0, 176, 80) ;
+}
+.content_right a.btn3 li {
+    margin : 5% 5% 5% 5% ; 
+    text-align : center ;  
+    border : 2px solid #ccc ; 
+    box-sizing : border-box ;
+}
+.content_right a.btn3 li input {
+    font-size : 32px ; margin : auto 5% ; 
+    width : 90% ; 
+    text-align : center ; 
+}
+.content_right a.btn4 li {
+    margin : 5% 5% 5% 5% ; 
+    text-align : center ;  
+    background-color: rgb(169, 209, 142) ;  
+    transition : all 0.2s ease ;
+    color : #fff ; 
+}
+.content_right a.btn4 li input {
+    font-size : 32px ; 
+    width : 90% ;  
+    margin : auto 5% ; 
+    border : 0 none ; 
+    background-color: rgb(169, 209, 142) ; 
+    color : #fff ; 
+    transition : all 0.2s ease ;
+}
+.content_right a.btn4:hover li input{
+    font-size : 32px ;
+    color : rgb(90, 127, 250) ;
+    box-shadow :
+        0 0 0 100px rgb(0, 0, 0, 0.1 ) inset ; 
+}
+.content_right a.btn4:hover li {
+    color : rgb(90, 127, 250) ;
+    box-shadow :
+        0 0 0 100px rgb(0, 0, 0, 0.1 ) inset ; 
+}
+ .content_right a.btn5 li {
+    position : absolute ; 
+    bottom : 0 ; left : 0 ;
+    margin : 5% 5% ;  
+    text-align : center ; 
+    color : #fff ; 
+    background-color: #111 ;
+    font-size : 32px ;
+    transition : all 0.2s ease ;
+}
+.content_right a.btn5:hover li {
+    
+    font-size : 34px ; 
+    color : rgb(90, 127, 250) ;
+}
+
+/* 미디어 커리 */
+
+@media (max-width : 1220px ) {
+}
+
+@media (max-width : 1024px ) {
+    #main_wrap li { font-size : 24px ; }
+    .content_right a.btn1 li { font-size : 22px ; }
+    .content_left a.btn1 li { font-size : 22px ; }
+}
+@media (max-width : 960px ) {
+    #main_wrap li { font-size : 20px ; }
+
+    .content_right a.btn1 li { font-size : 18px ; }
+    .content_left a.btn1 li { font-size : 18px ; }
+
+    .content_right a.btn2 li { margin : 50px 5% 5% 5% ; }
+
+    #main_wrap #content_left { height : 500px ; }
+    #main_wrap #content_center { height : 500px ; }
+    #main_wrap #content_right { height : 500px ; }
+    .content_left a.btn2 .counter { height : 80px ; }
+    .content_left a.btn2 .counter ul li {
+        height : 40px ;
+        line-height: 40px ;
+    }
+    .content_left a.btn2 .counter ul li .cl_tit {
+        font-size : 22px ;
+    }
+    
+}
+@media (max-width : 768px ) { 
+
+    #main_wrap li { font-size : 16px ; height : 60px ; line-height : 60px;}
+    .content_left a.btn2 .counter { height : 70px !important; }
+    .content_left a.btn2 .counter ul li {
+        height : 35px !important;
+        line-height: 35px !important;
+        font-size : 18px !important;
+    }
+    .content_left a.btn2 .counter ul li .cl_tit {
+        font-size : 20px !important;
+    }
+
+    .content_right a.btn1 li { font-size : 15px ; }
+    .content_left a.btn1 li { font-size : 15px ; }
+
+    .content_right a.btn3 li input { font-size : 24px ; }
+    .content_right a.btn4 li input { font-size : 24px ; }
+    .content_right a.btn4:hover li input{ font-size : 26px ; }
+}
+
+@media (max-width : 600px ) {
+
+    #main_wrap #content_left { width : 100% ; height : 180px ; }
+    #main_wrap #content_center { width : 100% ; height : 250px ; }
+    #main_wrap #content_right { width : 100% ; height : 150px ; }
+
+    #main_wrap li {height : 55px ; line-height : 55px; }
+
+
+    .content_right a.btn1 li { display : none ; }
+    .content_left a.btn1 li { float : left ; width : 43% ;  margin : 4% 2% 3% 5% ; font-size : 20px !important; }
+    .content_left a.next_ex li{ display : block ; margin : 4% 5% 3% 2% ; }
+    .content_left a.btn2 .counter { height : 60px !important; border-radius: 10px !important;}
+    .content_left a.btn2 .counter ul li {
+        width : 25% ; 
+        height : 60px !important;
+        line-height: 60px !important;
+        font-size : 18px !important; 
+    }
+    .content_left a.btn2 .counter ul li .cl_tit {
+        font-size : 22px !important ; 
+    }
+    .content_left a.btn3 { display : none ; }
+
+    .content_right a.btn2 li { margin : 5% ; }
+    .content_left ul { overflow : hidden ; }
+    .content_right a { width : 33.3333% ; float : left ; }
+    
+    .content_right a.btn5 li { margin : 5% 5% 3% 5% ; font-size : 24px !important; }
+    .content_right a.start_btn li{ display : block ; z-index: 1000;}
+}
+
+@media (max-width : 400px ) {
+
+    
+    #main_wrap #content_left { height : 140px ; }
+    #main_wrap #content_center { height : 225px ; }
+    #main_wrap #content_right { height : 130px ; }
+
+    #main_wrap li {height : 40px ; line-height : 40px; }
+
+    .content_left a.btn1 li { font-size : 16px !important; }
+    .content_left a.btn2 .counter { height : 50px !important; border-radius: 10px !important;}
+    .content_left a.btn2 .counter ul li {
+        width : 25% ; 
+        height : 50px !important;
+        line-height: 50px !important;
+        font-size : 18px !important; 
+    }
+    .content_left a.btn2 .counter ul li .cl_tit {
+        font-size : 22px !important ; 
+    }
+
+    .content_right a.btn3 li input { width : 86% ; margin : auto 7% ; font-size : 16px ; }
+    .content_right a.btn4 li input { width : 86% ; margin : auto 7% ; font-size : 16px ; }
+    .content_right a.btn4:hover li input{ font-size : 18px ; }
+    .content_right a.btn5 li{ height : 45px !important ;}
+
+}

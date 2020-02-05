@@ -1,0 +1,92 @@
+@charset "urf-8";
+
+#header{ background-color : rgb(37, 83, 231)  ; }
+
+.header { position : relative ; line-height : 85px ; text-align : center ; height : 85px ; 
+    box-shadow: 
+    0 0 0 7px rgba(0, 0, 0, 0.1),
+    0 0 0 6px rgba(0, 0, 0, 0.1),
+    0 0 0 5px rgba(0, 0, 0, 0.1),
+    0 0 0 4px rgba(0, 0, 0, 0.1), 
+    0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+/* .header img { width : 90px ; height : 60px ; float : left ; margin-top : 10px ; } */
+.header h1 { 
+    display : inline-block ; 
+    font-size : 48px ;  font-family : 'Carter One', cursive ; 
+    color : #fff ; 
+}
+.header a {
+    display : inline-block ; 
+    width : 75px; height : 75px ;
+    font-size : 35px ; 
+    line-height : 75px ;
+    border-radius : 50% ; 
+    color : #fff ; 
+    transition : all 0.2s ease-in-out;
+}
+.header a:hover {
+    font-size : 40px ; 
+    box-shadow :
+        0 0 0 75px rgba(0, 0, 0, 0.2) inset; 
+    color : #fff;
+}
+.header a:first-child { 
+    position : absolute ;
+    margin : 5px 0 5px 10px ;
+    top : 0 ; left : 0 ;
+    
+}
+.header a:last-child { 
+    position : absolute ;
+    margin : 5px 10px 5px 0 ;
+    top : 0 ; right : 0 ; 
+}
+
+@media (max-width : 1220px ) {
+
+
+}
+
+/* 819px */
+@media (max-width : 1024px) {
+
+    /* 헤더 */
+    .header { height : 75px ; line-height : 75px ; }
+    .header h1 { font-size : 42px ; }
+    .header a {
+        width : 64px; height : 64px ;
+        font-size : 26px ; 
+        line-height : 64px ;
+    }
+    .header a:hover { font-size : 28px ; }
+
+}
+
+@media (max-width : 600px ) {
+
+    /* 헤더 */
+    .header { height : 70px ; line-height : 70px ; }
+    .header h1 { font-size : 34px ; }
+    .header a {
+        width : 60px; height : 60px ;
+        font-size : 22px ; 
+        line-height : 60px ;
+    }
+    .header a:hover { font-size : 26px ; }
+
+}
+
+@media (max-width : 400px ) {
+
+        /* 헤더 */
+        .header { height : 50px ; line-height : 50px ; }
+        .header h1 { font-size : 28px ; }
+        .header a {
+            width : 44px; height : 44px ;
+            font-size : 18px ; 
+            line-height : 44px ;
+        }
+        .header a:hover { font-size : 22px ; }
+    
+}
