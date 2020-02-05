@@ -1,16 +1,8 @@
 @charset "urf-8";
 
-/* 스킵 메뉴 */
-#skip { position : relative ; }
-#skip a { display : inline-block ; position : absolute ; top : -35px ; left : 0 ; border : 1px soild white ;
-    width : 70px ; background-color : #555 ; color : #fff ; text-align : center ; }
-#skip a:active, 
-#skip a:focus { top : 0 ; }
-
 /* section 레이아웃 */
 #main_wrap { overflow : hidden ; width : 100% ; background-color : rgb(34, 74, 242); }
-#main_wrap .login { float : left ; width : 40% ; padding : 5% ; }
-#main_wrap .img { float : left ; width : 40% ; padding : 5% ; }
+
 
 
 /* footer 레이아웃 */

@@ -4,6 +4,15 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
+var phpExpress = require("php-express")({});
+
+// db connection
+var mysql = require("mysql");
+var dbconfig = require("./config/database");
+var connection = mysql.createConnection(dbconfig);
+
+connection.connect();
+
 var homeRouter = require("./routes/home");
 
 // var usersRouter = require("./routes/users");
@@ -11,7 +20,9 @@ var homeRouter = require("./routes/home");
 var app = express();
 
 // view engine setup
+
 app.engine("html", require("ejs").renderFile);
+app.engine("php", phpExpress.engine);
 app.set("view engine", "html");
 app.set("views", path.join(__dirname, "views"));
 
@@ -23,6 +34,14 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", homeRouter);
 // app.use("/users", usersRouter);
+
+// app.get("/test", function(req, res) {
+//   res.send(
+//     connection.connect(function(err) {
+//       if (err) return "errr";
+//     })
+//   );
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

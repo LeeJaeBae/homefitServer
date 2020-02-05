@@ -26,19 +26,10 @@
     />
   </head>
   <body>
-    <div id="skip">
-      <a href="#">로그인</a>
-      <a href="#">회원가입</a>
-    </div>
-    <!-- 스킵 메뉴 -->
-
     <div id="wrap">
       <header id="header">
         <div class="header">
-          <!--<img src = "img/pilates.png" alt = "로고">-->
-          <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
           <h1>Home fit</h1>
-          <a href="#"><i class="fa fa-play" aria-hidden="true"></i></a>
         </div>
       </header>
       <!-- header -->
@@ -62,12 +53,12 @@
                 <div class="login_content">
                   <h5 class="ir_su">로그인 영역</h5>
                   <div class="lc_text">
-                    <em>User id</em>
-                    <label for="uid" class="ir_su">Your id</label>
+                    <em>User email</em>
+                    <label for="user_email" class="ir_su">Your id</label>
                     <input
                       type="text"
-                      id="uid"
-                      name="uid"
+                      id="user_email"
+                      name="user_email"
                       class="input_text"
                       maxlength="20"
                       minlength="8"
@@ -83,20 +74,18 @@
                       minlength="8"
                     />
                   </div>
-                  <a
-                    href="#"
-                    class="login_maintain"
-                    onclick="return loginMaintain() ;"
-                    ><i class="fa fa-check-circle-o" aria-hidden="true"></i
-                    ><span>Login maintain</span></a
-                  >
+                  <a class="login_maintain" onclick="return loginMaintain() ;">
+                    <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                    <span>Login maintain</span>
+                    <input type="hidden" name="login_maintain" />
+                  </a>
                   <button class="lc_btn" type="submit">Login</button>
                 </div>
                 <!-- login content -->
 
                 <div class="login_footer">
                   <ul>
-                    <a href="#"><li>Forget ID or PW</li></a>
+                    <a href="/find"><li>Forget PW</li></a>
                     <a href="/register"><li>Register</li></a>
                   </ul>
                 </div>

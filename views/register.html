@@ -25,19 +25,10 @@
     />
   </head>
   <body>
-    <div id="skip">
-      <a href="#">로그인</a>
-      <a href="#">회원가입</a>
-    </div>
-    <!-- 스킵 메뉴 -->
-
     <div id="wrap">
       <header id="header">
         <div class="header">
-          <!--<img src = "img/pilates.png" alt = "로고">-->
-          <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
           <h1>Home fit</h1>
-          <a href="#"><i class="fa fa-play" aria-hidden="true"></i></a>
         </div>
       </header>
       <!-- header -->
@@ -59,19 +50,19 @@
                   <div class="register_information">
                     <ul>
                       <li>
-                        <label for="uid">ID</label>
+                        <label for="user_email">Email</label>
                         <input
                           type="text"
-                          id="uid"
-                          name="uid"
+                          id="user_email"
+                          name="user_email"
                           class="input_text"
                           maxlength="20"
-                          placeholder="ID"
+                          placeholder="Email"
                         />
                       </li>
                       <li>
-                        <a href="#" onclick="return idClick() ;"
-                          ><span>아이디 중복확인</span
+                        <a onclick="return idClick() ;" style="cursor: pointer;"
+                          ><span>이메일 확인</span
                           ><i class="fa fa-check" aria-hidden="true"></i
                         ></a>
                       </li>
@@ -87,20 +78,22 @@
                         />
                       </li>
                       <li class="gender">
-                        <a href="#" onclick="return maleClick() ;"
-                          ><span>남</span
-                          ><i
+                        <a href="#" onclick="return maleClick() ;">
+                          <span>남</span>
+                          <i
                             class="fa fa-check-square male"
                             aria-hidden="true"
-                          ></i
-                        ></a>
-                        <a href="#" onclick="return formaleClick() ;"
-                          ><span>여</span
-                          ><i
+                          ></i>
+                          <input type="hidden" name="male" />
+                        </a>
+                        <a href="#" onclick="return formaleClick() ;">
+                          <span>여</span>
+                          <i
                             class="fa fa-check-square formale"
                             aria-hidden="true"
-                          ></i
-                        ></a>
+                          ></i>
+                          <input type="hidden" name="formale" />
+                        </a>
                       </li>
                     </ul>
                   </div>
@@ -189,31 +182,37 @@
         } else {
           $(".fa-check").removeClass("on");
         }
-
+        $("input[name=email_check]").attr("value", count);
         count++;
       }
 
-      var male = 0;
-      var formale = 0;
+      var male = false;
+      var formale = false;
 
       function maleClick() {
-        if (parseInt(male % 2) == 0) {
+        if (formale) {
+          formaleClick();
+        }
+        if (!male) {
           $(".male").addClass("on");
         } else {
           $(".male").removeClass("on");
         }
-
-        male++;
+        $("input[name=male]").attr("value", male);
+        male = !male;
       }
 
       function formaleClick() {
-        if (parseInt(formale % 2) == 0) {
+        if (male) {
+          maleClick();
+        }
+        if (!formale) {
           $(".formale").addClass("on");
         } else {
           $(".formale").removeClass("on");
         }
-
-        formale++;
+        $("input[name=formale]").attr("value", formale);
+        formale = !formale;
       }
     </script>
   </body>

@@ -1,12 +1,5 @@
 @charset "urf-8";
 
-/* 스킵 메뉴 */
-#skip { position : relative ; }
-#skip a { display : inline-block ; position : absolute ; top : -35px ; left : 0 ; border : 1px soild white ;
-    width : 70px ; background-color : #555 ; color : #fff ; text-align : center ; }
-#skip a:active, 
-#skip a:focus { top : 0 ; }
-
 /* section 레이아웃 */
 #main_wrap { overflow : hidden ; width : 100% ; position : relative ; }
 #main_wrap #content_left { float : left ;  position : relative ; width : 20% ; height : 700px ; }

@@ -1,0 +1,29 @@
+CREATE TABLE calender(
+calender_id	INT	AUTO_INCREMENT,
+user 	INT 	NOT NULL, 
+date    	DATE      NOT NULL, 
+exercise 	INT        	NOT NULL, 
+sets      	INT        	NOT NULL,
+reps     	INT        	NOT NULL, 
+attendance 	INT	NULL, 
+PRIMARY KEY(calender_id)
+) engine=InnoDB;
+
+CREATE TABLE exercise(
+exercise_id	INT	AUTO_INCREMENT,
+name	VARCHAR(20) NOT NULL,
+PRIMARY KEY(exercise_id)
+) engine=InnoDB;
+
+//미리 저장되있어야하는 데이터
+INSERT INTO exercise(exercise_id, name)
+VALUES ("1", "Squat");
+
+INSERT INTO exercise(exercise_id, name)
+VALUES ("2", "Lunge");
+
+INSERT INTO exercise(exercise_id, name)
+VALUES ("3", "Push-up");
+
+INSERT INTO exercise(exercise_id, name)
+VALUES ("4", "Plank");
